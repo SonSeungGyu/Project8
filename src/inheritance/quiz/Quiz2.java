@@ -15,7 +15,7 @@ public class Quiz2 {
 		s.vol = 30;
 		s.ip = "192.0.0.0";
 		s.showInfo();
-		System.out.print(", 아이피:"+s.ip);
+		System.out.println(", 아이피:"+s.ip);
 	}
 }
 
