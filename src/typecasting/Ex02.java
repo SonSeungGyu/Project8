@@ -13,13 +13,6 @@ class Customer2{
 	double bonusPoint; //보너스 포인트
 	double bonusRatio; //적립률
 	
-	//default constructor
-//	public Customer2() { 
-//		customerGrade = "SILVER";
-//		bonusRatio = 0.01;
-//		
-//		System.out.println("Customer2() 생성자 호출");//생성자 호출 문장
-//	}
 	
 	public Customer2(String customerName) {
 		super();
