@@ -1,15 +1,33 @@
-package polymorphism;
+package polymorphism.quiz;
 
+import java.util.ArrayList;
 
-public class Ex02 {
+public class Quiz2 {
+
 	public static void main(String[] args) {
-		Customer customer = new Customer("둘리");
-		customer.calcPrice(10000);
-		customer.showInfo();
+		ArrayList<Customer> list = new ArrayList<Customer>();
+//		Customer customer = new Customer("둘리");
+//		Customer customer2 = new VIPCustomer("또치");
+//		Customer customer3 = new GOLDCustomer("마이콜");
+//		list.add(customer);
+//		list.add(customer2);
+//		list.add(customer3);
+		list.add(new Customer("둘리"));
+		list.add(new VIPCustomer("또치"));
+		list.add(new GOLDCustomer("도우너"));
 		
-		Customer customer2 = new VIPCustomer("또치");
-		customer2.calcPrice(10000);
-		customer2.showInfo();
+//		for (Customer customers : list) {//람다식 for문
+//			customers.calcPrice(10000);
+//		}
+		for (int i = 0; i < list.size(); i++) {//일반 for문 이용
+			list.get(i).calcPrice(10000);
+		}
+//		for (Customer customers : list) {
+//			customers.showInfo();
+//		}
+		for (int i = 0; i < list.size(); i++) {
+			list.get(i).showInfo();
+		}
 		
 	}
 }
@@ -72,3 +90,35 @@ class VIPCustomer extends Customer{
 	}
 	
 }
+
+
+
+//새로운 등급의 클래스 선언
+class GOLDCustomer extends Customer{
+	double saleRatio;
+
+	public GOLDCustomer(String customerName) {
+		super(customerName);
+		customerGrade = "GOLD";
+		bonusRatio = 0.02;//보너스 포인트 2%
+		saleRatio = 0.1; //할인률 10%
+	}
+
+	@Override
+	public void calcPrice(int price) {
+		
+		bonusPoint = bonusPoint + (price * bonusRatio);
+		
+		int salePrice = price - (int)(price * saleRatio);
+		
+		System.out.println(customerName + "님이 " + salePrice + "원을 결제했습니다.");
+		
+	}
+	
+}
+
+
+
+
+
+
